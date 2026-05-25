@@ -447,6 +447,7 @@ with tab2:
                            xanchor="left", bgcolor="rgba(22,27,34,.8)",
                            bordercolor=AMBER, borderwidth=1)
         st.plotly_chart(fig, use_container_width=True)
+        st.markdown('<p style="font-size:.85rem;color:#8B949E;margin:.5rem 0 0 0;">A maioria dos imóveis se concentra entre ₹40L e ₹150L. A cauda à direita mostra poucos imóveis de alto valor puxando a média acima da mediana.</p>', unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
     with col_r:
@@ -468,6 +469,7 @@ with tab2:
             bgcolor="rgba(22,27,34,.85)", bordercolor=RED, borderwidth=1,
             font=dict(color=RED, size=12))
         st.plotly_chart(fig2, use_container_width=True)
+        st.markdown(f'<p style="font-size:.85rem;color:#8B949E;margin:.5rem 0 0 0;">Correlação moderada (r = {pearson_r:.2f}): área influencia o preço, mas a dispersão mostra que localização e BHK também pesam muito.</p>', unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
     # Gestalt: Proximidade — rótulos diretamente nas barras (sem legenda de eixo X)
@@ -490,6 +492,10 @@ with tab2:
                    annotation_text=f" Média cidade ₹{city_avg:,.0f}",
                    annotation_font=dict(color=AMBER, size=10))
     st.plotly_chart(fig3, use_container_width=True)
+    top_bairro = top_loc.iloc[-1]["location"]
+    top_pps    = top_loc.iloc[-1]["price_per_sqft"]
+    ratio_top  = top_pps / city_avg
+    st.markdown(f'<p style="font-size:.85rem;color:#8B949E;margin:.5rem 0 0 0;">{top_bairro} lidera com ₹{top_pps:,.0f}/sqft — {ratio_top:.1f}× a média da cidade. Localização é o principal fator de variação de preço.</p>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
     # Gestalt: Similaridade — escala de cor única (Blues) = intensidade de correlação
@@ -504,6 +510,9 @@ with tab2:
     fig4.update_layout(coloraxis_colorbar=dict(
         tickfont=dict(color="#8B949E"), title_font=dict(color="#8B949E")))
     st.plotly_chart(fig4, use_container_width=True)
+    r_sqft = corr.loc["total_sqft", "price"]
+    r_bath = corr.loc["bath", "price"]
+    st.markdown(f'<p style="font-size:.85rem;color:#8B949E;margin:.5rem 0 0 0;">total_sqft (r={r_sqft:.2f}) e bath (r={r_bath:.2f}) são as variáveis com maior correlação com o preço. bhk e bath são fortemente correlacionados entre si.</p>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
 # ──────────────────────────────────────────────────────────────────────────────
