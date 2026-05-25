@@ -249,39 +249,9 @@ code.inline {
 div[data-testid="stMetricValue"] { font-size:1.8rem !important; font-weight:800 !important; color:#E6EDF3 !important; }
 div[data-testid="stMetricLabel"] { font-size:.78rem !important; font-weight:500 !important; color:#8B949E !important; text-transform:uppercase; letter-spacing:.5px; }
 
-/* Selectbox e inputs */
-.stSelectbox > div > div,
-.stSelectbox [data-baseweb="select"] > div,
-[data-testid="stSelectbox"] [data-baseweb="select"] > div,
-[data-testid="stSelectbox"] [data-baseweb="select"] {
-    background:#161B22 !important; border-color:#30363D !important;
-    border-radius:10px !important; color:#E6EDF3 !important;
-}
-/* Texto selecionado */
-[data-testid="stSelectbox"] [data-baseweb="select"] span,
-[data-testid="stSelectbox"] [data-baseweb="select"] div {
-    color:#E6EDF3 !important; background:#161B22 !important;
-}
-/* Dropdown popup e lista */
-[data-baseweb="popover"],
-[data-baseweb="popover"] > div,
-[data-baseweb="menu"],
-[data-baseweb="menu"] > div {
-    background:#161B22 !important; border:1px solid #30363D !important;
-    color:#E6EDF3 !important;
-}
-/* Opções individuais */
-[data-baseweb="option"] {
-    background:#161B22 !important; color:#E6EDF3 !important;
-}
-[data-baseweb="option"]:hover,
-[data-baseweb="option"][aria-selected="true"] {
-    background:#21262D !important; color:#58A6FF !important;
-}
-/* Input de busca dentro do selectbox */
-[data-testid="stSelectbox"] input {
-    background:#161B22 !important; color:#E6EDF3 !important;
-    caret-color:#58A6FF !important;
+/* Selectbox — borda customizada (cores base vêm do config.toml dark theme) */
+[data-testid="stSelectbox"] [data-baseweb="select"] > div {
+    border-color:#30363D !important; border-radius:10px !important;
 }
 
 /* Slider */
