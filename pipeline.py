@@ -9,7 +9,7 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
-DATA_PATH = r"C:\Users\Administrador\Downloads\Bengaluru_House_Data.csv"
+DATA_PATH = r"Bengaluru_House_Data.csv"
 
 
 def load_data():
